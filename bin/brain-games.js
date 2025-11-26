@@ -5,6 +5,12 @@ const debugMode = true
 // cd C:\Users\sshvi\Downloads\frontend-project-44-main
 // node bin/brain-games.js
 
+// Добавьте в README.md аскинему с запуском и демонстрацией различных исходов игры.
+// Добавьте в директорию bin новый исполняемый файл с названием brain-calc.js.
+
+// Запишите аскинему с примером установки пакета, запуска игры, победой и поражением игрока. Опубликуйте её в сервисе и добавьте ссылку в README.md.
+// https://asciinema.org/
+
 import readlineSync from 'readline-sync';
 
 console.log(`Welcome to the Brain Games!`)
@@ -82,15 +88,15 @@ function CalcGame() {
 	console.log(`What is the result of the expression?`)
 
 	for (let x = 1; x <= totalQuestions; x++) {
-		let num1 = rand(0,10)
-		let num2 = rand(0,10)
+		let num1 = rand(0,25)
+		let num2 = rand(0,25)
 
 		if (rand(0,10000) == 0) { // super hard mode
 			num1 = rand(100,10000)
 			num2 = rand(100,10000)
 		}
 
-		let action = ["+","-","*"][rand(0,2)]
+		let action = ["+","-","*"][x-1]
 		
 		console.log(`Question: ${num1} ${action} ${num2}`);
 
