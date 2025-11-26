@@ -33,6 +33,16 @@ function isEven(number) {
 	return number/2 == Math.floor(number/2)
 }
 
+function gcd(a, b) {
+	while (b !== 0) {
+		let temp = b;
+		b = a % b;
+		a = temp;
+	}
+	return a;
+}
+
+
 const totalQuestions = 3
 
 function compareAnswers(answer,correctAnswer,questionNumber) {
@@ -101,9 +111,7 @@ function CalcGame() {
 		console.log(`Question: ${num1} ${action} ${num2}`);
 
 		let answer = readlineSync.question(`Your answer: `);
-		let correctAnswer
-
-		correctAnswer = calculate[action](num1, num2);
+		let correctAnswer = calculate[action](num1, num2);
 		
 		if (compareAnswers(answer,correctAnswer,x) == false) {
 			break
@@ -113,7 +121,40 @@ function CalcGame() {
 	return
 }
 
-CalcGame()
+function NodGame() {
+	console.log(`Find the greatest common divisor of given numbers.`)
+
+	for (let x = 1; x <= totalQuestions; x++) {
+		let n1 = rand(2,100)
+		let n2 = rand(2,100)
+
+		let correctAnswer = gcd(n1,n2)
+		
+		for (let x = 1; x <= 3; x++) {
+			if (correctAnswer == 1) {
+				n1 = rand(2,100)
+				n2 = rand(2,100)
+				correctAnswer = gcd(n1,n2)
+			} else {
+				break
+			}
+			// not the "best" approach but it decreases the odds of gcd being 1 (quite common), plus this is purely optional
+		}		
+		console.log(`Question: ${n1} ${n2}`);
+
+		let answer = readlineSync.question(`Your answer: `);
+
+		if (compareAnswers(answer,correctAnswer,x) == false) {
+			break
+		} 
+	}
+	
+	return
+}
+
+NodGame()
+
+// CalcGame()
 
 // EvenOddGame()
 
