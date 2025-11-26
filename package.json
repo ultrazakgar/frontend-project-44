@@ -1,3 +1,11 @@
-"bin": {
-  "brain-games": "bin/brain-games.js"
+{
+  "name": "brain-games",
+  "version": "1.0.0",
+  "type": "module",
+  "bin": {
+    "brain-games": "./bin/brain-games.js"
+  },
+  "dependencies": {
+    "readline-sync": "^1.4.10"
+  }
 }
