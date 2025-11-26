@@ -27,17 +27,26 @@ function isEven(number) {
 	return number/2 == Math.floor(number/2)
 }
 
-function compareAnswers(a1,a2) {
-	correct = (answer === correctAnswer)
+const totalQuestions = 3
+
+function compareAnswers(answer,correctAnswer,questionNumber) {
+	let correct = (answer == correctAnswer)
+
+	if (correct) {
+		console.log("Correct!");
+		if (questionNumber == totalQuestions) {
+			console.log(`Congratulations, ${name}!`)
+		}
+	} else {
+		console.log(`'${answer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`);
+		console.log(`Let's try again, ${name}!`)
+	}
 
 	return(correct)
 }
 
 function EvenOddGame() {
 	console.log(`Answer "yes" if the number is even, otherwise answer "no".`)
-
-	let totalQuestions = 3
-	let winner = true	
 
 	for (let x = 1; x <= totalQuestions; x++) {
 		let number = rand(1,100000)
@@ -55,26 +64,51 @@ function EvenOddGame() {
 			correctAnswer = "no";
 		}
 
-		if (answer === correctAnswer) {
-			console.log("Correct!");
-		} else {
-			console.log(`'${answer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`);
-			winner = false;
-			break;
-		}
-	}
-	
-	if (winner) {
-		console.log(`Congratulations, ${name}!`)
-		// no looping
-	} else {
-		console.log(`Let's try again, ${name}!`)
-		EvenOddGame() // looped until succesful
+		if (compareAnswers(answer,correctAnswer,x) == false) {
+			break
+		} 
 	}
 	
 	return
 }
 
-EvenOddGame()
+const calculate = {
+    "+": (a, b) => a + b,
+    "-": (a, b) => a - b,
+    "*": (a, b) => a * b
+};
+
+function CalcGame() {
+	console.log(`What is the result of the expression?`)
+
+	for (let x = 1; x <= totalQuestions; x++) {
+		let num1 = rand(0,10)
+		let num2 = rand(0,10)
+
+		if (rand(0,10000)) { // super hard mode
+			num1 = rand(100,10000)
+			num2 = rand(100,10000)
+		}
+
+		let action = ["+","-","*"][rand(0,2)]
+		
+		console.log(`Question: ${num1} ${action} ${num2}`);
+
+		let answer = readlineSync.question(`Your answer: `);
+		let correctAnswer
+
+		correctAnswer = calculate[action](num1, num2);
+		
+		if (compareAnswers(answer,correctAnswer,x) == false) {
+			break
+		} 
+	}
+	
+	return
+}
+
+CalcGame()
+
+// EvenOddGame()
 
 
