@@ -1,5 +1,8 @@
 #!/usr/bin/env node
 
+// cd C:\Users\sshvi\Downloads\frontend-project-44-main
+// node bin/brain-games.js
+
 import readlineSync from 'readline-sync';
 
 console.log(`Welcome to the Brain Games!`)
