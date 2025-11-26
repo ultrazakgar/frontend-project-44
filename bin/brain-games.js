@@ -85,7 +85,7 @@ function CalcGame() {
 		let num1 = rand(0,10)
 		let num2 = rand(0,10)
 
-		if (rand(0,10000)) { // super hard mode
+		if (rand(0,10000) == 0) { // super hard mode
 			num1 = rand(100,10000)
 			num2 = rand(100,10000)
 		}
