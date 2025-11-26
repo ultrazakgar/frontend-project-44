@@ -152,7 +152,47 @@ function NodGame() {
 	return
 }
 
-NodGame()
+function ProgressionGame() {
+	console.log(`What number is missing in the progression?`)
+
+	for (let x = 1; x <= totalQuestions; x++) {
+		let length = rand(9,11)
+		let start = rand(2,10)
+		let increment = rand(2,9)
+		let incGrowth = rand(0,1) // extra difficulty
+		
+		if (incGrowth > 0) { // it was too hard
+			increment = rand(1,5)
+		}
+		
+		let missingNumber = rand(1,length)
+
+		let list = [start]
+		
+		for (let y = 1; y <= length-1; y++) {
+			list[y] = list[y-1] + increment
+			increment += incGrowth
+		}
+
+		let correctAnswer = list[missingNumber-1]
+		
+		list[missingNumber-1] = ".."
+		
+		console.log(`Question: ${list.join(' ')}`);
+
+		let answer = readlineSync.question(`Your answer: `);
+		
+		if (compareAnswers(answer,correctAnswer,x) == false) {
+			break
+		} 
+	}
+	
+	return
+}
+
+ProgressionGame()
+
+// NodGame()
 
 // CalcGame()
 
