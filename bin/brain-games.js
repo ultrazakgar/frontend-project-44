@@ -1,5 +1,7 @@
 #!/usr/bin/env node
 
+const debugMode = true
+
 // cd C:\Users\sshvi\Downloads\frontend-project-44-main
 // node bin/brain-games.js
 
@@ -7,7 +9,13 @@ import readlineSync from 'readline-sync';
 
 console.log(`Welcome to the Brain Games!`)
 
-const name = readlineSync.question(`May I have your name? `);
+let name = ""
+
+if (debugMode) {
+	name = "Developer"
+} else {
+	name = readlineSync.question(`May I have your name? `);
+}
 
 console.log(`Hello, ${name}!`);
 
@@ -17,6 +25,12 @@ function rand(min, max) {
 
 function isEven(number) {
 	return number/2 == Math.floor(number/2)
+}
+
+function compareAnswers(a1,a2) {
+	correct = (answer === correctAnswer)
+
+	return(correct)
 }
 
 function EvenOddGame() {
