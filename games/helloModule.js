@@ -15,7 +15,7 @@ class helloGame extends parentGame {
      * @returns {(string|*)[]}
      */
     play(idx,userName) {
-        return [`Hello ${userName}!`, null, null];
+        return [`Hello, ${userName}!`, null, null];
     }
 
 }
