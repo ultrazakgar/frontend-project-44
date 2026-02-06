@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 /**
  * run game with arguments/ defaut - from node command line
  * @example `node index.js calc`
