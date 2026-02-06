@@ -1,0 +1,44 @@
+/**
+ * run game with arguments/ defaut - from node command line
+ * @example `node index.js calc`
+ */
+const args = process.argv.slice(2);
+import readlineSync from 'readline-sync';
+
+let userName = 'anonymous', results = {};
+
+function playGame(game_name) {
+    return import(`./${game_name}Module.js`)
+        .then(module => {
+            let game = module.default
+            let rounds = game.rounds || 3;
+            results[game_name] = [];
+            if ('' !== game.description)
+                console.log(game.description || 'Game have no decription, just do what you want');
+            // game=game.default.get();
+            for (let i = 0; i < rounds; i++) {
+                let [question, mark, correct] = game.play(i)
+                console.log(`${question}`);
+                const userAnswer = readlineSync.question(`${mark}`);
+                results[game_name].push(userAnswer);
+                if (correct !== null) {
+                    if (userAnswer === correct.toString().toLowerCase()) {
+                        console.log('Correct!');
+                    } else {
+                        if (i + 1 === rounds) {
+                            console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${correct}'.`);
+                        } else {
+                            console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${correct}'.\nLet's try again, ${userName}!`);
+                        }
+                    }
+                }
+            }
+        }).catch(err => console.log(`Sorry, game ${args[0]} not found.`));
+}
+
+if (!!(args[0])) { // запустили не из экспортной версии?
+    await playGame('user');
+    userName = results['user'][0];
+    await playGame(args[0]);
+}
+export default playGame;

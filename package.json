@@ -1,0 +1,36 @@
+{
+  "name": "@hexlet/code",
+  "version": "1.0.0",
+  "description": "Brain пфьуы",
+  "homepage": "https://github.com/ultrazakgar/frontend-project-44#readme",
+  "bugs": {
+    "url": "https://github.com/ultrazakgar/frontend-project-44/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ultrazakgar/frontend-project-44.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "module",
+  "main": "bin/brain-games.js",
+  "bin": {
+    "code": "bin/brain-games.js",
+    "brain-games": "bin/brain-games.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "readline-sync": "^1.4.10"
+  },
+  "node_modules/readline-sync": {
+    "version": "1.4.10",
+    "resolved": "https://registry.npmjs.org/readline-sync/-/readline-sync-1.4.10.tgz",
+    "integrity": "sha512-gNva8/6UAe8QYepIQH/jQ2qn91Qj0B9sYjMBBs3QOB8F2CXcKgLxQaJRP76sWVRQt+QU+8fAkCbCvjjMFu7Ycw==",
+    "license": "MIT",
+    "engines": {
+      "node": ">= 0.8.0"
+    }
+  }
+}
