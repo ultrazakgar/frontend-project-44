@@ -42,6 +42,18 @@ function gcd(a, b) {
 	return a;
 }
 
+function isPrime(number) {
+	if (number < 2) return false;
+	if (number === 2) return true;  
+	if (number % 2 === 0) return false;
+
+	for (let i = 3; i <= Math.sqrt(number); i += 2) {
+		if (number % i === 0) return false;
+	}
+
+	return true
+}
+
 
 const totalQuestions = 3
 
@@ -190,7 +202,36 @@ function ProgressionGame() {
 	return
 }
 
-ProgressionGame()
+function PrimeGame() {
+	console.log(`Answer "yes" if given number is prime. Otherwise answer "no".`)
+
+	for (let x = 1; x <= totalQuestions; x++) {
+		let number = rand(1,100)
+
+		let prime = isPrime(number)
+		
+		console.log(`Question: ${number}`);
+
+		let answer = readlineSync.question(`Your answer: `);
+		let correctAnswer
+		
+		if (prime) {
+			correctAnswer = "yes";
+		} else {
+			correctAnswer = "no";
+		}
+
+		if (compareAnswers(answer,correctAnswer,x) == false) {
+			break
+		} 
+	}
+	
+	return
+}
+
+PrimeGame()
+
+// ProgressionGame()
 
 // NodGame()
 
