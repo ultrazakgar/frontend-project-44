@@ -1,4 +1,4 @@
-import parentGame from './parentGame.js';
+import parentGame from './parentGame.js'
 
 class calcGame extends parentGame {
 
