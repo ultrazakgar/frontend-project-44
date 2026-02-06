@@ -21,11 +21,7 @@
                             console.log('Correct!');
                         } else {
                             results[`${game_name}_fault`]=1;
-                            if (i + 1 === rounds) {
-                                console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${correct}'.`);
-                            } else {
-                                console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${correct}'.\nLet's try again, ${results.userName}!`);
-                            }
+                            console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${correct}'.\nLet's try again, ${results.userName}!`);
                             break;
                         }
                     }
