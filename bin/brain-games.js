@@ -8,7 +8,7 @@ import readlineSync from 'readline-sync';
 
 let userName = 'anonymous', results = {};
 
-function playGame(game_name) {
+function playGame(game_name,userName) {
     return import(`../games/${game_name}Module.js`)
         .then(module => {
             let game = module.default
@@ -18,10 +18,10 @@ function playGame(game_name) {
                 console.log(game.description || 'Game have no decription, just do what you want');
             // game=game.default.get();
             for (let i = 0; i < rounds; i++) {
-                let [question, mark, correct] = game.play(i), userAnswer;
+                let [question, mark, correct] = game.play(i,userName), userAnswer;
                 if(!!question)
                     console.log(`${question}`);
-                if(!!mark) {
+                if(null !== mark) {
                     userAnswer = readlineSync.question(`${mark}`);
                     results[game_name].push(userAnswer);
                 }
@@ -42,9 +42,11 @@ function playGame(game_name) {
 
 if (!!(args[0])) { // запустили не из экспортной версии?
      playGame('user');
-    userName = results['user'][0];
+     userName = results['user'][0];
      playGame(args[0]);
 } else {
-    playGame('hello');
+    await playGame('user',userName);
+	userName = results['user'][0];
+	await playGame('hello',userName);
 }
 export default playGame;

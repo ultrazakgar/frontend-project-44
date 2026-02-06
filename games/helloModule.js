@@ -7,15 +7,15 @@ class helloGame extends parentGame {
 
     rounds = 1;
 
-    description = ``
+    //description = `Welcome to the Brain Games!`
 
     /**
      * Just return 3 values
      * @param idx from 0 to rounds
      * @returns {(string|*)[]}
      */
-    play(idx) {
-        return [`Welcome to the brain games!`, null, null];
+    play(idx,userName) {
+        return [`Hello ${userName}!`, null, null];
     }
 
 }

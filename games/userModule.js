@@ -5,7 +5,7 @@ class userName {
     rounds = 1;
 
     /** `` - mean silent */
-    description = ``;
+    description = `Welcome to the Brain Games!`;
 
     /**
      * Just return 3 values
@@ -13,7 +13,7 @@ class userName {
      * @returns {(string|*)[]}
      */
     play(idx) {
-        return [`May I have your name?`, `Your: `, null];
+        return [``, `May I have your name? `, null];
     }
 
 }
