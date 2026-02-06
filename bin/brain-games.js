@@ -5,7 +5,7 @@
  */
 const args = process.argv.slice(2);
 import readlineSync from 'readline-sync';
-import parentGame from './parentGame.js';
+import parentGame from './games/parentGame.js';
 
 let userName = 'anonymous', results = {};
 
