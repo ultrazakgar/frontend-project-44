@@ -40,13 +40,10 @@ function playGame(game_name,userName) {
         }).catch(err => console.log(`Sorry, game ${args[0]} not found.`));
 }
 
-if (!!(args[0])) { // запустили не из экспортной версии?
-     playGame('user');
-     userName = results['user'][0];
-     playGame(args[0]);
-} else {
     await playGame('user',userName);
 	userName = results['user'][0];
 	await playGame('hello',userName);
-}
+if (!!(args[0])) { // запустили не из экспортной версии?
+     playGame(args[0]);
+} 
 export default playGame;
