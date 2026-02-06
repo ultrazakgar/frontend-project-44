@@ -5,4 +5,4 @@
  */
 import {doit} from '../games/playGame.js';
 
-doit('progression');
+doit('progr');
