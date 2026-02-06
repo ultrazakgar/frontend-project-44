@@ -18,6 +18,7 @@
     "code": "bin/brain-games.js",
     "brain-games": "bin/brain-games.js",
     "brain-even": "bin/brain-even.js",
+    "brain-calc": "bin/brain-calc.js",
     "@hexlet/code": "bin/brain-games.js"
   },
   "scripts": {

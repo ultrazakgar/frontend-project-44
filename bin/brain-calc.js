@@ -11,8 +11,8 @@ await playGame('user',results);
 results.userName = results['user'][0];
 await playGame('hello',results);
 
-await playGame('evenodd',results);
-if(!results['evenodd_fault']){
+await playGame('calc',results);
+if(!results['calc_fault']){
     console.log(`Congratulations, ${results.userName}!`)
 }
  
