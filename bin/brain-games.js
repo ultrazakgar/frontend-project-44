@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
  * run game with arguments/ defaut - from node command line
- * @example `node index.js calc`
+ * @example `node bin/brain-games.js` 
  */
 const args = process.argv.slice(2);
 import readlineSync from 'readline-sync';
