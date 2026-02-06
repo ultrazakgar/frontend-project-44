@@ -1,6 +1,6 @@
-  import readlineSync from 'readline-sync';
+    import readlineSync from 'readline-sync';
   
-  export function playGame(game_name,results) {
+    function playGame(game_name,results) {
         return import(`./${game_name}Module.js`)
             .then(module => {
                 let game = module.default
@@ -27,5 +27,20 @@
                     }
                 }
             }).catch(err => console.log(`Sorry, game ${game_name} not found.`, err));
+    }
+
+    export async function doit(game){
+        let results = { userName: 'anonymous' }
+
+        await playGame('user', results)
+        results.userName = results['user'][0]
+        await playGame('hello', results)
+
+        if (!!game){
+            await playGame(game, results)
+            if (!results[`${game}_fault`]){
+                console.log(`Congratulations, ${results.userName}!`)
+            }
+        }
     }
 

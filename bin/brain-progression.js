@@ -1,18 +1,8 @@
 #!/usr/bin/env node
 /**
  * run game with arguments/ defaut - from node command line
- * @example `node bin/brain-games.js` 
+ * @example `node bin/brain-progression.js` 
  */
-import {playGame} from '../games/playGame.js';
+import {doit} from '../games/playGame.js';
 
-let results = {userName :'anonymous'};
-
-await playGame('user',results);
-results.userName = results['user'][0];
-await playGame('hello',results);
-
-await playGame('progr',results);
-if(!results['progr_fault']){
-    console.log(`Congratulations, ${results.userName}!`)
-}
- 
+doit('progression');
