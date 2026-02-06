@@ -14,8 +14,8 @@ class helloGame extends parentGame {
      * @param idx from 0 to rounds
      * @returns {(string|*)[]}
      */
-    play(idx,userName) {
-        return [`Hello, ${userName}!`, null, null];
+    play(idx,results) {
+        return [`Hello, ${results.userName}!`, null, null];
     }
 
 }

@@ -12,3 +12,4 @@ class parentGame {
 }
 
 export default parentGame
+
